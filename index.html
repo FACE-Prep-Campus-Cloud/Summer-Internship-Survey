@@ -46,24 +46,13 @@
     max-width: 780px; margin: 0 auto;
     padding: 60px 20px 100px;
   }
-  @media (max-width: 640px) { 
-    .wrap { padding: 30px 16px 80px; }
-  }
+  @media (max-width: 640px) { .wrap { padding: 30px 16px 80px; } }
 
-  /* HEADER */
   .header { text-align: center; margin-bottom: 56px; animation: fadeUp .7s ease both; }
   @media (max-width: 640px) { .header { margin-bottom: 36px; } }
   .logo-area { display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
-  .logo-img {
-    max-width: 280px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  @media (max-width: 640px) {
-    .logo-img { max-width: 220px; }
-  }
+  .logo-img { max-width: 280px; width: 100%; height: auto; display: block; margin: 0 auto; }
+  @media (max-width: 640px) { .logo-img { max-width: 220px; } }
   h1 {
     font-family: 'Syne', sans-serif;
     font-size: clamp(1.5rem, 5vw, 3rem);
@@ -72,84 +61,32 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text; margin-bottom: 14px;
   }
-  .subtitle { 
-    color: var(--muted); 
-    font-size: 15px; 
-    max-width: 520px; 
-    margin: 0 auto; 
-    font-weight: 300; 
-    line-height: 1.7; 
-  }
-  @media (max-width: 640px) { 
-    .subtitle { font-size: 14px; line-height: 1.6; }
-  }
+  .subtitle { color: var(--muted); font-size: 15px; max-width: 520px; margin: 0 auto; font-weight: 300; line-height: 1.7; }
+  @media (max-width: 640px) { .subtitle { font-size: 14px; line-height: 1.6; } }
 
-  /* PROGRESS */
-  .progress-label { 
-    display: flex; 
-    justify-content: space-between; 
-    font-size: 12px; 
-    color: var(--muted); 
-    margin-bottom: 8px; 
-    animation: fadeUp .7s .1s ease both; 
-  }
-  .progress-bar-outer {
-    background: var(--surface2); border-radius: 100px; height: 4px;
-    margin-bottom: 48px; overflow: hidden; animation: fadeUp .7s .1s ease both;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
-  }
+  .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 8px; animation: fadeUp .7s .1s ease both; }
+  .progress-bar-outer { background: var(--surface2); border-radius: 100px; height: 4px; margin-bottom: 48px; overflow: hidden; animation: fadeUp .7s .1s ease both; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); }
   @media (max-width: 640px) { .progress-bar-outer { margin-bottom: 32px; } }
-  .progress-bar-inner {
-    height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2));
-    border-radius: 100px; transition: width .4s ease; width: 0%;
-  }
+  .progress-bar-inner { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 100px; transition: width .4s ease; width: 0%; }
 
-  /* SECTION */
-  .section {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 32px; margin-bottom: 24px;
-    opacity: 0; animation: fadeUp .5s ease both;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
-  @media (max-width: 640px) { 
-    .section { padding: 20px 16px; margin-bottom: 16px; }
-  }
+  .section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 24px; opacity: 0; animation: fadeUp .5s ease both; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  @media (max-width: 640px) { .section { padding: 20px 16px; margin-bottom: 16px; } }
   .section:nth-child(1){animation-delay:.10s;}
   .section:nth-child(2){animation-delay:.15s;}
   @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
 
-  .section-title {
-    font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700;
-    color: var(--text); margin-bottom: 24px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  @media (max-width: 640px) { 
-    .section-title { font-size: 16px; margin-bottom: 18px; }
-  }
-  .section-title .icon {
-    width: 32px; height: 32px; border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px; flex-shrink: 0;
-  }
-  @media (max-width: 640px) {
-    .section-title .icon { width: 28px; height: 28px; font-size: 14px; }
-  }
+  .section-title { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  @media (max-width: 640px) { .section-title { font-size: 16px; margin-bottom: 18px; } }
+  .section-title .icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+  @media (max-width: 640px) { .section-title .icon { width: 28px; height: 28px; font-size: 14px; } }
   .icon-orange { background: rgba(249,115,22,.12); color: var(--accent); }
   .icon-blue   { background: rgba(14,165,233,.12);  color: var(--accent2); }
 
-  /* FIELD */
   .field { margin-bottom: 20px; }
-  @media (max-width: 640px) { 
-    .field { margin-bottom: 16px; }
-  }
+  @media (max-width: 640px) { .field { margin-bottom: 16px; } }
   .field:last-child { margin-bottom: 0; }
-  label {
-    display: block; font-size: 13px; font-weight: 500; color: var(--muted);
-    margin-bottom: 8px; letter-spacing: .04em; text-transform: uppercase;
-  }
-  @media (max-width: 640px) {
-    label { font-size: 12px; margin-bottom: 6px; }
-  }
+  label { display: block; font-size: 13px; font-weight: 500; color: var(--muted); margin-bottom: 8px; letter-spacing: .04em; text-transform: uppercase; }
+  @media (max-width: 640px) { label { font-size: 12px; margin-bottom: 6px; } }
   label .req { color: var(--accent); margin-left: 2px; }
 
   input[type="text"], input[type="email"], input[type="tel"], textarea, select {
@@ -160,63 +97,34 @@
     transition: border-color .2s, box-shadow .2s;
     appearance: none; -webkit-appearance: none;
   }
-  @media (max-width: 640px) {
-    input[type="text"], input[type="email"], input[type="tel"], textarea, select { 
-      font-size: 16px; 
-      padding: 11px 14px; 
-    }
-  }
-  input:focus, textarea:focus, select:focus {
-    border-color: var(--accent); box-shadow: 0 0 0 3px rgba(249,115,22,.1);
-  }
+  @media (max-width: 640px) { input[type="text"], input[type="email"], input[type="tel"], textarea, select { font-size: 16px; padding: 11px 14px; } }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(249,115,22,.1); }
   input::placeholder, textarea::placeholder { color: #94a3b8; }
   textarea { min-height: 110px; resize: vertical; }
-  @media (max-width: 640px) {
-    textarea { min-height: 100px; }
-  }
+  @media (max-width: 640px) { textarea { min-height: 100px; } }
 
-  .field.error input, .field.error textarea, .field.error select {
-    border-color: var(--error); box-shadow: 0 0 0 3px rgba(239,68,68,.1);
-  }
+  .field.error input, .field.error textarea, .field.error select { border-color: var(--error); box-shadow: 0 0 0 3px rgba(239,68,68,.1); }
   .field.error > label { color: var(--error); }
   .error-message { display: none; font-size: 12px; color: var(--error); margin-top: 6px; font-weight: 500; }
-  @media (max-width: 640px) {
-    .error-message { font-size: 11px; }
-  }
+  @media (max-width: 640px) { .error-message { font-size: 11px; } }
   .field.error .error-message { display: block; }
 
   .select-wrapper { position: relative; }
-  .select-wrapper::after {
-    content: ''; position: absolute; right: 16px; top: 50%;
-    transform: translateY(-50%); width: 0; height: 0;
-    border-left: 5px solid transparent; border-right: 5px solid transparent;
-    border-top: 6px solid var(--muted); pointer-events: none;
-  }
-  @media (max-width: 640px) {
-    .select-wrapper::after { right: 14px; }
-  }
+  .select-wrapper::after { content: ''; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid var(--muted); pointer-events: none; }
+  @media (max-width: 640px) { .select-wrapper::after { right: 14px; } }
   .select-wrapper select { padding-right: 40px; cursor: pointer; }
   .select-wrapper select option[value=""] { color: #94a3b8; }
 
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media(max-width: 640px) { 
-    .field-row { grid-template-columns: 1fr; gap: 12px; } 
-  }
+  @media(max-width: 640px) { .field-row { grid-template-columns: 1fr; gap: 12px; } }
 
   .divider { height: 1px; background: var(--border); margin: 24px 0; }
-  @media (max-width: 640px) {
-    .divider { margin: 18px 0; }
-  }
+  @media (max-width: 640px) { .divider { margin: 18px 0; } }
   .section-subtitle { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
-  @media (max-width: 640px) {
-    .section-subtitle { font-size: 11px; }
-  }
+  @media (max-width: 640px) { .section-subtitle { font-size: 11px; } }
 
-  /* CHECKBOX / RADIO GRID */
   .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  @media(max-width: 640px) { 
-    .checkbox-grid { grid-template-columns: 1fr; gap: 8px; } 
-  }
+  @media(max-width: 640px) { .checkbox-grid { grid-template-columns: 1fr; gap: 8px; } }
   .checkbox-grid input[type="checkbox"],
   .checkbox-grid input[type="radio"] { display: none; }
   .checkbox-grid label {
@@ -225,17 +133,10 @@
     color: var(--text); background: var(--surface); border: 1px solid var(--border);
     border-radius: 10px; padding: 12px 16px; cursor: pointer; transition: all .2s; margin: 0;
   }
-  @media (max-width: 640px) { 
-    .checkbox-grid label { padding: 11px 14px; font-size: 14px; gap: 8px; }
-  }
+  @media (max-width: 640px) { .checkbox-grid label { padding: 11px 14px; font-size: 14px; gap: 8px; } }
   .checkbox-grid input[type="checkbox"]:checked + label,
-  .checkbox-grid input[type="radio"]:checked   + label {
-    background: rgba(249,115,22,.1); border-color: var(--accent); color: var(--accent);
-  }
-  .checkbox-grid label::before {
-    content: ''; width: 16px; height: 16px; border-radius: 4px;
-    border: 1px solid var(--border); flex-shrink: 0; transition: all .2s; background: var(--surface2);
-  }
+  .checkbox-grid input[type="radio"]:checked   + label { background: rgba(249,115,22,.1); border-color: var(--accent); color: var(--accent); }
+  .checkbox-grid label::before { content: ''; width: 16px; height: 16px; border-radius: 4px; border: 1px solid var(--border); flex-shrink: 0; transition: all .2s; background: var(--surface2); }
   .checkbox-grid input[type="radio"] + label::before { border-radius: 50%; }
   .checkbox-grid input[type="checkbox"]:checked + label::before,
   .checkbox-grid input[type="radio"]:checked   + label::before {
@@ -245,16 +146,11 @@
   }
 
   .other-input-wrap { margin-top: 10px; display: none; }
-  @media (max-width: 640px) {
-    .other-input-wrap { margin-top: 8px; }
-  }
+  @media (max-width: 640px) { .other-input-wrap { margin-top: 8px; } }
   .other-input-wrap.visible { display: block; animation: fadeUp .3s ease both; }
 
-  /* SUBMIT */
   .submit-area { text-align: center; margin-top: 40px; animation: fadeUp .5s .5s ease both; opacity: 0; }
-  @media (max-width: 640px) {
-    .submit-area { margin-top: 32px; }
-  }
+  @media (max-width: 640px) { .submit-area { margin-top: 32px; } }
   .btn-submit {
     display: inline-flex; align-items: center; gap: 10px;
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
@@ -263,35 +159,13 @@
     border-radius: 12px; padding: 16px 44px; cursor: pointer;
     transition: all .2s; box-shadow: 0 4px 14px rgba(249,115,22,.3);
   }
-  @media (max-width: 640px) { 
-    .btn-submit { 
-      width: 100%; 
-      justify-content: center; 
-      padding: 14px 32px; 
-      font-size: 15px; 
-    } 
-  }
-  .btn-submit:hover:not(:disabled) { 
-    transform: translateY(-2px); 
-    box-shadow: 0 8px 20px rgba(249,115,22,.35); 
-  }
+  @media (max-width: 640px) { .btn-submit { width: 100%; justify-content: center; padding: 14px 32px; font-size: 15px; } }
+  .btn-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(249,115,22,.35); }
   .btn-submit:active:not(:disabled) { transform: translateY(0); }
   .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
-  .note { 
-    color: var(--muted); 
-    font-size: 12px; 
-    margin-top: 14px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 6px; 
-    flex-wrap: wrap; 
-  }
-  @media (max-width: 640px) {
-    .note { font-size: 11px; margin-top: 12px; }
-  }
+  .note { color: var(--muted); font-size: 12px; margin-top: 14px; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+  @media (max-width: 640px) { .note { font-size: 11px; margin-top: 12px; } }
 
-  /* TOAST */
   #toast {
     position: fixed; bottom: 32px; left: 50%;
     transform: translateX(-50%) translateY(20px);
@@ -301,44 +175,100 @@
     z-index: 9999; display: flex; align-items: center; gap: 10px;
     white-space: nowrap; max-width: calc(100vw - 32px);
   }
-  @media (max-width: 640px) { 
-    #toast { 
-      bottom: 20px; 
-      padding: 12px 20px; 
-      font-size: 13px; 
-      white-space: normal; 
-      text-align: center; 
-    } 
-  }
+  @media (max-width: 640px) { #toast { bottom: 20px; padding: 12px 20px; font-size: 13px; white-space: normal; text-align: center; } }
   #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   #toast.success { border-color: rgba(16,185,129,.3); background: rgba(16,185,129,.05); }
   #toast.error   { border-color: rgba(239,68,68,.3);  background: rgba(239,68,68,.05); }
 
-  @keyframes shake {
-    0%,100%{transform:translateX(0);}
-    10%,30%,50%,70%,90%{transform:translateX(-4px);}
-    20%,40%,60%,80%{transform:translateX(4px);}
-  }
+  @keyframes shake { 0%,100%{transform:translateX(0);} 10%,30%,50%,70%,90%{transform:translateX(-4px);} 20%,40%,60%,80%{transform:translateX(4px);} }
   .shake { animation: shake 0.5s; }
   .char-hint { font-size: 11px; color: var(--muted); text-align: right; margin-top: 4px; }
+  @media (max-width: 640px) { .char-hint { font-size: 10px; } }
+
+  /* GUIDELINES BUTTON */
+  .guidelines-btn {
+    display: inline-flex; align-items: center; gap: 14px;
+    margin-top: 22px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all .25s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    max-width: 480px;
+    width: 100%;
+    text-align: left;
+  }
+  .guidelines-btn:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 18px rgba(249,115,22,.15);
+    transform: translateY(-2px);
+  }
+  .guidelines-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .guidelines-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+  .guidelines-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .guidelines-sub {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .guidelines-arrow {
+    font-size: 18px;
+    color: var(--accent);
+    flex-shrink: 0;
+    font-weight: 700;
+    transition: transform .2s;
+  }
+  .guidelines-btn:hover .guidelines-arrow {
+    transform: translate(2px, -2px);
+  }
   @media (max-width: 640px) {
-    .char-hint { font-size: 10px; }
+    .guidelines-btn { padding: 12px 16px; gap: 10px; margin-top: 18px; }
+    .guidelines-icon { font-size: 24px; }
+    .guidelines-label { font-size: 13px; }
+    .guidelines-sub { font-size: 11px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- HEADER -->
   <div class="header">
     <div class="logo-area">
-      <img src="image.webp" alt="FACE Prep Campus" class="logo-img">
+      <img src="face prep campus.webp" alt="FACE Prep Campus" class="logo-img">
     </div>
     <h1>Tell Us About Your Project</h1>
     <p class="subtitle">Fill in your details and project information. Your responses help us understand the impact you're creating this summer.</p>
+    <a href="Build-to-Learn_Summer_Internship_Program_2026_-_FACE_Prep_Campus.pdf" target="_blank" class="guidelines-btn">
+      <span class="guidelines-icon">📄</span>
+      <span class="guidelines-text">
+        <span class="guidelines-label">Project Guidelines</span>
+        <span class="guidelines-sub">Build-to-Learn Summer Internship 2026 — Click to view</span>
+      </span>
+      <span class="guidelines-arrow">↗</span>
+    </a>
   </div>
 
-  <!-- PROGRESS --> 
   <div class="progress-label">
     <span>Progress</span>
     <span id="pct">0%</span>
@@ -349,7 +279,7 @@
 
   <form id="surveyForm" novalidate>
 
-    <!-- ── BASIC DETAILS ── -->
+    <!-- BASIC DETAILS -->
     <div class="section">
       <div class="section-title">
         <div class="icon icon-orange">👤</div>
@@ -431,7 +361,7 @@
       </div>
     </div>
 
-    <!-- ── PROJECT DETAILS ── -->
+    <!-- PROJECT DETAILS -->
     <div class="section">
       <div class="section-title">
         <div class="icon icon-blue">📋</div>
@@ -456,6 +386,17 @@
 
       <div class="divider"></div>
 
+      <!-- ── NEW: Impact of Problem ── -->
+      <div class="field" id="impactField">
+        <label for="impactOfProblem">Impact of Problem <span class="req">*</span></label>
+        <p class="section-subtitle">Briefly explain how your project solves the problem.</p>
+        <textarea id="impactOfProblem" name="impactOfProblem" placeholder="How does your project solve the problem?…" required></textarea>
+        <div class="char-hint" id="impCount">0 / 500</div>
+        <div class="error-message">Please describe the impact of the problem</div>
+      </div>
+
+      <div class="divider"></div>
+
       <div class="field">
         <label for="brandName">Business / Brand Name <span class="req">*</span></label>
         <input type="text" id="brandName" name="brandName" placeholder="Enter your business or brand name" required>
@@ -464,19 +405,19 @@
 
       <div class="divider"></div>
 
-      <!-- Project Type – radio styled as chip grid -->
+      <!-- Project Type -->
       <div class="field" id="ptField">
         <label>Project Type <span class="req">*</span> <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:12px;">(Select one)</span></label>
         <div class="checkbox-grid">
-          <input type="radio" id="pt1" name="projectType" value="Home Automation"          required><label for="pt1">Home Automation</label>
-          <input type="radio" id="pt2" name="projectType" value="Healthcare">               <label for="pt2">Healthcare</label>
-          <input type="radio" id="pt3" name="projectType" value="Agriculture">              <label for="pt3">Agriculture</label>
-          <input type="radio" id="pt4" name="projectType" value="Safety &amp; Security">   <label for="pt4">Safety &amp; Security</label>
-          <input type="radio" id="pt5" name="projectType" value="Smart City">               <label for="pt5">Smart City</label>
-          <input type="radio" id="pt6" name="projectType" value="Assistive Technology">    <label for="pt6">Assistive Technology</label>
-          <input type="radio" id="pt7" name="projectType" value="Environmental Monitoring"><label for="pt7">Environmental Monitoring</label>
-          <input type="radio" id="pt8" name="projectType" value="Industrial IoT">           <label for="pt8">Industrial IoT</label>
-          <input type="radio" id="pt9" name="projectType" value="Other">                    <label for="pt9">Other</label>
+          <input type="radio" id="pt1" name="projectType" value="Home Automation"           required><label for="pt1">Home Automation</label>
+          <input type="radio" id="pt2" name="projectType" value="Healthcare">                <label for="pt2">Healthcare</label>
+          <input type="radio" id="pt3" name="projectType" value="Agriculture">               <label for="pt3">Agriculture</label>
+          <input type="radio" id="pt4" name="projectType" value="Safety &amp; Security">    <label for="pt4">Safety &amp; Security</label>
+          <input type="radio" id="pt5" name="projectType" value="Smart City">                <label for="pt5">Smart City</label>
+          <input type="radio" id="pt6" name="projectType" value="Assistive Technology">     <label for="pt6">Assistive Technology</label>
+          <input type="radio" id="pt7" name="projectType" value="Environmental Monitoring">  <label for="pt7">Environmental Monitoring</label>
+          <input type="radio" id="pt8" name="projectType" value="Industrial IoT">            <label for="pt8">Industrial IoT</label>
+          <input type="radio" id="pt9" name="projectType" value="Other">                     <label for="pt9">Other</label>
         </div>
         <div class="other-input-wrap" id="ptOtherWrap">
           <input type="text" id="ptOther" name="projectTypeOther" placeholder="Please specify your project type">
@@ -486,7 +427,7 @@
 
       <div class="divider"></div>
 
-      <!-- Target Users – checkbox multi-select -->
+      <!-- Target Users -->
       <div class="field" id="tuField">
         <label>Target Users <span class="req">*</span> <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:12px;">(Select all that apply)</span></label>
         <div class="checkbox-grid" id="targetUsersGrid">
@@ -521,9 +462,7 @@
         <span>Submit Survey</span>
         <span>→</span>
       </button>
-      <p class="note">🔒 Your response is confidential and handled only by the Operations team of FacePrep Campus.
-
-</p>
+      <p class="note">🔒 Your response is confidential and will be used only for internship programme evaluation.</p>
     </div>
 
   </form>
@@ -532,10 +471,8 @@
 <div id="toast"></div>
 
 <script>
-  // ⚠️ REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-  const SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyApv_0WngMt4OXFroocRi3E06PGqQVa1GSTf6SAIPjbYE6e5eSKCpX1QxLgI55heXi/exec";
+  const SHEET_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
-  // ── College → Department map (same colleges as FACE Prep form) ──
   const COLLEGE_DEPTS = {
     "Kamaraj College":                   ["I BCA - A","I BCA - B","II BCA","B.Com Honors","BBA Digital Marketing"],
     "Kamaraj Women's College":           ["I BCA - A"],
@@ -561,7 +498,6 @@
     "Kristu Jayanti (Deemed to be University)":["BBA - AI & DS","BBA - FinTech"]
   };
 
-  // College → Department dynamic population
   document.getElementById('collegeName').addEventListener('change', function () {
     const college = this.value;
     const deptSel = document.getElementById('department');
@@ -581,7 +517,6 @@
     updateProgress();
   });
 
-  // Other – project type
   document.querySelectorAll('[name="projectType"]').forEach(r => {
     r.addEventListener('change', () => {
       const wrap = document.getElementById('ptOtherWrap');
@@ -595,7 +530,6 @@
     });
   });
 
-  // Other – target users
   document.getElementById('tu7').addEventListener('change', function () {
     const wrap = document.getElementById('tuOtherWrap');
     const otherInp = document.getElementById('tuOther');
@@ -603,15 +537,12 @@
     else              { wrap.classList.remove('visible'); otherInp.required = false; otherInp.value = ''; }
     updateProgress();
   });
-  
-  // Target users change tracking for progress
-  document.querySelectorAll('[name="targetUsers"]').forEach(cb => {
-    cb.addEventListener('change', updateProgress);
-  });
 
-  // Character counters
+  document.querySelectorAll('[name="targetUsers"]').forEach(cb => cb.addEventListener('change', updateProgress));
+
   function setupCharCount(id, countId, max) {
     const ta = document.getElementById(id), ct = document.getElementById(countId);
+    if (!ta || !ct) return;
     ta.addEventListener('input', () => {
       const l = ta.value.length;
       ct.textContent = `${l} / ${max}`;
@@ -619,9 +550,9 @@
     });
   }
   setupCharCount('problemStatement','psCount',500);
+  setupCharCount('impactOfProblem','impCount',500);
   setupCharCount('keyOutcome','koCount',800);
 
-  // Progress
   function updateProgress() {
     let req = 0, done = 0;
     const radioGroups = new Set();
@@ -641,7 +572,6 @@
   document.getElementById('surveyForm').addEventListener('input',  updateProgress);
   document.getElementById('surveyForm').addEventListener('change', updateProgress);
 
-  // Validation
   function clearAllErrors() { document.querySelectorAll('.field.error').forEach(f=>f.classList.remove('error')); }
 
   function validateForm() {
@@ -652,7 +582,7 @@
       const inp = field.querySelector('input:not([type="radio"]):not([type="checkbox"]), textarea, select');
       if (!inp || !inp.required) return;
       let ok = true;
-      if (inp.type === 'email')        ok = inp.value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value);
+      if (inp.type === 'email')          ok = inp.value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value);
       else if (inp.tagName === 'SELECT') ok = !!inp.value;
       else                               ok = inp.value.trim().length > 0;
       if (!ok) { field.classList.add('error'); isValid = false; if (!firstError) firstError = field; }
@@ -666,7 +596,6 @@
       const f = document.getElementById('tuField');
       f.classList.add('error'); isValid = false; if (!firstError) firstError = f;
     }
-
     if (!isValid && firstError) {
       firstError.scrollIntoView({ behavior:'smooth', block:'center' });
       const sec = firstError.closest('.section');
@@ -700,6 +629,7 @@
     const tuVals  = fd.getAll('targetUsers');
     const tuOther = fd.get('targetUsersOther') || '';
     const tuFinal = tuVals.map(v => v==='Other' && tuOther ? tuOther : v).join('; ');
+    const impFinal = fd.get('impactOfProblem') || '';
 
     const data = {
       timestamp:        new Date().toISOString(),
@@ -712,6 +642,7 @@
       city:             fd.get('city'),
       projectTitle:     fd.get('projectTitle'),
       problemStatement: fd.get('problemStatement') || '',
+      impactOfProblem:  impFinal,
       brandName:        fd.get('brandName'),
       projectType:      ptFinal,
       targetUsers:      tuFinal,
@@ -728,14 +659,39 @@
     }
 
     try {
-      const response = await fetch(SHEET_SCRIPT_URL, {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify(data),
-        mode: 'no-cors'
+      // Use a hidden form POST — the only method that reliably works
+      // with Google Apps Script from a browser due to CORS restrictions
+      await new Promise((resolve, reject) => {
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = SHEET_SCRIPT_URL;
+        form.target = 'hidden_iframe';
+        form.style.display = 'none';
+
+        // Send data as a single JSON string in one field
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'data';
+        input.value = JSON.stringify(data);
+        form.appendChild(input);
+
+        const iframe = document.createElement('iframe');
+        iframe.name = 'hidden_iframe';
+        iframe.style.display = 'none';
+        iframe.onload = () => resolve();
+        iframe.onerror = () => reject(new Error('Submit failed'));
+
+        document.body.appendChild(iframe);
+        document.body.appendChild(form);
+        form.submit();
+
+        // Cleanup after 5 seconds
+        setTimeout(() => {
+          document.body.removeChild(form);
+          document.body.removeChild(iframe);
+          resolve();
+        }, 5000);
       });
-      
-      // With no-cors mode, we can't read the response, but if no error is thrown, it succeeded
       showToast('Survey submitted successfully! Thank you 🎉', 'success');
       this.reset();
       clearAllErrors();
@@ -744,6 +700,7 @@
       document.getElementById('ptOtherWrap').classList.remove('visible');
       document.getElementById('tuOtherWrap').classList.remove('visible');
       document.getElementById('psCount').textContent = '0 / 500';
+      document.getElementById('impCount').textContent = '0 / 500';
       document.getElementById('koCount').textContent = '0 / 800';
       updateProgress();
       window.scrollTo({ top:0, behavior:'smooth' });
