@@ -65,9 +65,14 @@
     display: block; 
     margin: 0 auto;
   }
+  /* ── LOGO FIX: full width on mobile ── */
   @media (max-width: 640px) { 
+    .logo-area {
+      width: 100%;
+    }
     .logo-img { 
-      max-width: 200px;
+      max-width: 100%;
+      width: 100%;
     } 
   }
   h1 {
@@ -762,7 +767,6 @@
 
       <div class="divider"></div>
 
-      <!-- ── NEW: Impact of Problem ── -->
       <div class="field" id="impactField">
         <label for="impactOfProblem">Impact of Problem <span class="req">*</span></label>
         <p class="section-subtitle">Briefly explain how your project solves the problem.</p>
