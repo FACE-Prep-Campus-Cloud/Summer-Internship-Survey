@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build to Learn – Summer Internship 2026 Survey</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --surface2: #f1f5f9;
+    --border: #e2e8f0;
+    --accent: #f97316;
+    --accent2: #0ea5e9;
+    --gold: #f59e0b;
+    --text: #1e293b;
+    --muted: #64748b;
+    --error: #ef4444;
+    --success: #10b981;
+    --radius: 14px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(249,115,22,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(14,165,233,0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wrap {
+    position: relative; z-index: 1;
+    max-width: 780px; margin: 0 auto;
+    padding: 60px 20px 100px;
+  }
+  @media (max-width: 640px) { 
+    .wrap { padding: 30px 16px 80px; }
+  }
+
+  /* HEADER */
+  .header { text-align: center; margin-bottom: 56px; animation: fadeUp .7s ease both; }
+  @media (max-width: 640px) { .header { margin-bottom: 36px; } }
+  .logo-area { display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
+  .logo-img {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  @media (max-width: 640px) {
+    .logo-img { max-width: 220px; }
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 800; line-height: 1.15;
+    background: linear-gradient(135deg, #1e293b 30%, #f97316 65%, #0ea5e9);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 14px;
+  }
+  .subtitle { 
+    color: var(--muted); 
+    font-size: 15px; 
+    max-width: 520px; 
+    margin: 0 auto; 
+    font-weight: 300; 
+    line-height: 1.7; 
+  }
+  @media (max-width: 640px) { 
+    .subtitle { font-size: 14px; line-height: 1.6; }
+  }
+
+  /* PROGRESS */
+  .progress-label { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 12px; 
+    color: var(--muted); 
+    margin-bottom: 8px; 
+    animation: fadeUp .7s .1s ease both; 
+  }
+  .progress-bar-outer {
+    background: var(--surface2); border-radius: 100px; height: 4px;
+    margin-bottom: 48px; overflow: hidden; animation: fadeUp .7s .1s ease both;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+  }
+  @media (max-width: 640px) { .progress-bar-outer { margin-bottom: 32px; } }
+  .progress-bar-inner {
+    height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 100px; transition: width .4s ease; width: 0%;
+  }
+
+  /* SECTION */
+  .section {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px; margin-bottom: 24px;
+    opacity: 0; animation: fadeUp .5s ease both;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  @media (max-width: 640px) { 
+    .section { padding: 20px 16px; margin-bottom: 16px; }
+  }
+  .section:nth-child(1){animation-delay:.10s;}
+  .section:nth-child(2){animation-delay:.15s;}
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+
+  .section-title {
+    font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700;
+    color: var(--text); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  @media (max-width: 640px) { 
+    .section-title { font-size: 16px; margin-bottom: 18px; }
+  }
+  .section-title .icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .section-title .icon { width: 28px; height: 28px; font-size: 14px; }
+  }
+  .icon-orange { background: rgba(249,115,22,.12); color: var(--accent); }
+  .icon-blue   { background: rgba(14,165,233,.12);  color: var(--accent2); }
+
+  /* FIELD */
+  .field { margin-bottom: 20px; }
+  @media (max-width: 640px) { 
+    .field { margin-bottom: 16px; }
+  }
+  .field:last-child { margin-bottom: 0; }
+  label {
+    display: block; font-size: 13px; font-weight: 500; color: var(--muted);
+    margin-bottom: 8px; letter-spacing: .04em; text-transform: uppercase;
+  }
+  @media (max-width: 640px) {
+    label { font-size: 12px; margin-bottom: 6px; }
+  }
+  label .req { color: var(--accent); margin-left: 2px; }
+
+  input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+    width: 100%; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; color: var(--text);
+    font-family: 'DM Sans', sans-serif; font-size: 15px;
+    padding: 12px 16px; outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    appearance: none; -webkit-appearance: none;
+  }
+  @media (max-width: 640px) {
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select { 
+      font-size: 16px; 
+      padding: 11px 14px; 
+    }
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--accent); box-shadow: 0 0 0 3px rgba(249,115,22,.1);
+  }
+  input::placeholder, textarea::placeholder { color: #94a3b8; }
+  textarea { min-height: 110px; resize: vertical; }
+  @media (max-width: 640px) {
+    textarea { min-height: 100px; }
+  }
+
+  .field.error input, .field.error textarea, .field.error select {
+    border-color: var(--error); box-shadow: 0 0 0 3px rgba(239,68,68,.1);
+  }
+  .field.error > label { color: var(--error); }
+  .error-message { display: none; font-size: 12px; color: var(--error); margin-top: 6px; font-weight: 500; }
+  @media (max-width: 640px) {
+    .error-message { font-size: 11px; }
+  }
+  .field.error .error-message { display: block; }
+
+  .select-wrapper { position: relative; }
+  .select-wrapper::after {
+    content: ''; position: absolute; right: 16px; top: 50%;
+    transform: translateY(-50%); width: 0; height: 0;
+    border-left: 5px solid transparent; border-right: 5px solid transparent;
+    border-top: 6px solid var(--muted); pointer-events: none;
+  }
+  @media (max-width: 640px) {
+    .select-wrapper::after { right: 14px; }
+  }
+  .select-wrapper select { padding-right: 40px; cursor: pointer; }
+  .select-wrapper select option[value=""] { color: #94a3b8; }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width: 640px) { 
+    .field-row { grid-template-columns: 1fr; gap: 12px; } 
+  }
+
+  .divider { height: 1px; background: var(--border); margin: 24px 0; }
+  @media (max-width: 640px) {
+    .divider { margin: 18px 0; }
+  }
+  .section-subtitle { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  @media (max-width: 640px) {
+    .section-subtitle { font-size: 11px; }
+  }
+
+  /* CHECKBOX / RADIO GRID */
+  .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media(max-width: 640px) { 
+    .checkbox-grid { grid-template-columns: 1fr; gap: 8px; } 
+  }
+  .checkbox-grid input[type="checkbox"],
+  .checkbox-grid input[type="radio"] { display: none; }
+  .checkbox-grid label {
+    display: flex; align-items: center; gap: 10px;
+    text-transform: none; letter-spacing: 0; font-size: 14px; font-weight: 400;
+    color: var(--text); background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 16px; cursor: pointer; transition: all .2s; margin: 0;
+  }
+  @media (max-width: 640px) { 
+    .checkbox-grid label { padding: 11px 14px; font-size: 14px; gap: 8px; }
+  }
+  .checkbox-grid input[type="checkbox"]:checked + label,
+  .checkbox-grid input[type="radio"]:checked   + label {
+    background: rgba(249,115,22,.1); border-color: var(--accent); color: var(--accent);
+  }
+  .checkbox-grid label::before {
+    content: ''; width: 16px; height: 16px; border-radius: 4px;
+    border: 1px solid var(--border); flex-shrink: 0; transition: all .2s; background: var(--surface2);
+  }
+  .checkbox-grid input[type="radio"] + label::before { border-radius: 50%; }
+  .checkbox-grid input[type="checkbox"]:checked + label::before,
+  .checkbox-grid input[type="radio"]:checked   + label::before {
+    background: var(--accent); border-color: var(--accent);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M6.5 11.5L3 8l1-1 2.5 2.5 5.5-5.5 1 1z'/%3E%3C/svg%3E");
+    background-size: contain;
+  }
+
+  .other-input-wrap { margin-top: 10px; display: none; }
+  @media (max-width: 640px) {
+    .other-input-wrap { margin-top: 8px; }
+  }
+  .other-input-wrap.visible { display: block; animation: fadeUp .3s ease both; }
+
+  /* SUBMIT */
+  .submit-area { text-align: center; margin-top: 40px; animation: fadeUp .5s .5s ease both; opacity: 0; }
+  @media (max-width: 640px) {
+    .submit-area { margin-top: 32px; }
+  }
+  .btn-submit {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    color: #fff; font-family: 'Syne', sans-serif; font-size: 16px;
+    font-weight: 700; letter-spacing: .04em; border: none;
+    border-radius: 12px; padding: 16px 44px; cursor: pointer;
+    transition: all .2s; box-shadow: 0 4px 14px rgba(249,115,22,.3);
+  }
+  @media (max-width: 640px) { 
+    .btn-submit { 
+      width: 100%; 
+      justify-content: center; 
+      padding: 14px 32px; 
+      font-size: 15px; 
+    } 
+  }
+  .btn-submit:hover:not(:disabled) { 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 20px rgba(249,115,22,.35); 
+  }
+  .btn-submit:active:not(:disabled) { transform: translateY(0); }
+  .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+  .note { 
+    color: var(--muted); 
+    font-size: 12px; 
+    margin-top: 14px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 6px; 
+    flex-wrap: wrap; 
+  }
+  @media (max-width: 640px) {
+    .note { font-size: 11px; margin-top: 12px; }
+  }
+
+  /* TOAST */
+  #toast {
+    position: fixed; bottom: 32px; left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 24px; font-size: 14px; color: var(--text);
+    box-shadow: 0 10px 40px rgba(0,0,0,.15); opacity: 0; transition: all .3s;
+    z-index: 9999; display: flex; align-items: center; gap: 10px;
+    white-space: nowrap; max-width: calc(100vw - 32px);
+  }
+  @media (max-width: 640px) { 
+    #toast { 
+      bottom: 20px; 
+      padding: 12px 20px; 
+      font-size: 13px; 
+      white-space: normal; 
+      text-align: center; 
+    } 
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  #toast.success { border-color: rgba(16,185,129,.3); background: rgba(16,185,129,.05); }
+  #toast.error   { border-color: rgba(239,68,68,.3);  background: rgba(239,68,68,.05); }
+
+  @keyframes shake {
+    0%,100%{transform:translateX(0);}
+    10%,30%,50%,70%,90%{transform:translateX(-4px);}
+    20%,40%,60%,80%{transform:translateX(4px);}
+  }
+  .shake { animation: shake 0.5s; }
+  .char-hint { font-size: 11px; color: var(--muted); text-align: right; margin-top: 4px; }
+  @media (max-width: 640px) {
+    .char-hint { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-area">
+      <img src="image.webp" alt="FACE Prep Campus" class="logo-img">
+    </div>
+    <h1>Tell Us About Your Project</h1>
+    <p class="subtitle">Fill in your details and project information. Your responses help us understand the impact you're creating this summer.</p>
+  </div>
+
+  <!-- PROGRESS --> 
+  <div class="progress-label">
+    <span>Progress</span>
+    <span id="pct">0%</span>
+  </div>
+  <div class="progress-bar-outer">
+    <div class="progress-bar-inner" id="progressBar"></div>
+  </div>
+
+  <form id="surveyForm" novalidate>
+
+    <!-- ── BASIC DETAILS ── -->
+    <div class="section">
+      <div class="section-title">
+        <div class="icon icon-orange">👤</div>
+        Basic Details
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="fullName">Full Name <span class="req">*</span></label>
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+          <div class="error-message">Please enter your full name</div>
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="e.g. 9876543210" required>
+          <div class="error-message">Please enter your phone number</div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="email">Email ID <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="yourname@email.com" required>
+          <div class="error-message">Please enter a valid email address</div>
+        </div>
+        <div class="field">
+          <label for="regNo">Register No. <span class="req">*</span></label>
+          <input type="text" id="regNo" name="regNo" placeholder="e.g. 22CS001" required>
+          <div class="error-message">Please enter your register number</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="collegeName">College Name <span class="req">*</span></label>
+        <div class="select-wrapper">
+          <select id="collegeName" name="collegeName" required>
+            <option value="" disabled selected>Select your college</option>
+            <option value="Kamaraj College">Kamaraj College</option>
+            <option value="Rathinam College of Arts &amp; Science">Rathinam College of Arts &amp; Science</option>
+            <option value="Kamaraj Women's College">Kamaraj Women's College</option>
+            <option value="Sree Saraswathi Thyagaraja College">Sree Saraswathi Thyagaraja College</option>
+            <option value="Nagarathinam Angalammal Arts &amp; Science College">Nagarathinam Angalammal Arts &amp; Science College</option>
+            <option value="Sri Amaraavathi College of Arts &amp; Science">Sri Amaraavathi College of Arts &amp; Science</option>
+            <option value="Bharathidasan College of Arts &amp; Science">Bharathidasan College of Arts &amp; Science</option>
+            <option value="SDNB Vaishnav College for Women">SDNB Vaishnav College for Women</option>
+            <option value="TERF's College of Arts and Science">TERF's College of Arts and Science</option>
+            <option value="TJS College of Arts and Science">TJS College of Arts and Science</option>
+            <option value="Vinayaga Mission's Research Foundation School of Arts &amp; Science">Vinayaga Mission's Research Foundation School of Arts &amp; Science</option>
+            <option value="Patrician College of Arts &amp; Science">Patrician College of Arts &amp; Science</option>
+            <option value="Takshashila University">Takshashila University</option>
+            <option value="AMET University">AMET University</option>
+            <option value="Joy University">Joy University</option>
+            <option value="Noorul Islam Centre for Higher Education (NICHE)">Noorul Islam Centre for Higher Education (NICHE)</option>
+            <option value="Study World Group of Institution">Study World Group of Institution</option>
+            <option value="Sasurie College of Arts and Science">Sasurie College of Arts and Science</option>
+            <option value="S-VYASA University">S-VYASA University</option>
+            <option value="Asian School of Business">Asian School of Business</option>
+            <option value="Alliance University">Alliance University</option>
+            <option value="Kristu Jayanti (Deemed to be University)">Kristu Jayanti (Deemed to be University)</option>
+          </select>
+        </div>
+        <div class="error-message">Please select your college</div>
+      </div>
+
+      <div class="field">
+        <label for="department">Course / Department <span class="req">*</span></label>
+        <div class="select-wrapper">
+          <select id="department" name="department" required disabled>
+            <option value="" disabled selected>First select your college</option>
+          </select>
+        </div>
+        <div class="error-message">Please select your department</div>
+      </div>
+
+      <div class="field">
+        <label for="city">City <span class="req">*</span></label>
+        <input type="text" id="city" name="city" placeholder="Enter your city" required>
+        <div class="error-message">Please enter your city</div>
+      </div>
+    </div>
+
+    <!-- ── PROJECT DETAILS ── -->
+    <div class="section">
+      <div class="section-title">
+        <div class="icon icon-blue">📋</div>
+        Project Details
+      </div>
+
+      <div class="field">
+        <label for="projectTitle">Project Title / Topic <span class="req">*</span></label>
+        <input type="text" id="projectTitle" name="projectTitle" placeholder="e.g. Smart Home Energy Monitor" required>
+        <div class="error-message">Please enter your project title</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field">
+        <label for="problemStatement">Problem Statement <span class="req">*</span></label>
+        <p class="section-subtitle">Describe the real-world problem your project is solving.</p>
+        <textarea id="problemStatement" name="problemStatement" placeholder="What problem does your project address?…" required></textarea>
+        <div class="char-hint" id="psCount">0 / 500</div>
+        <div class="error-message">Please describe the problem your project is solving</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field">
+        <label for="brandName">Business / Brand Name <span class="req">*</span></label>
+        <input type="text" id="brandName" name="brandName" placeholder="Enter your business or brand name" required>
+        <div class="error-message">Please enter a business/brand name</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Project Type – radio styled as chip grid -->
+      <div class="field" id="ptField">
+        <label>Project Type <span class="req">*</span> <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:12px;">(Select one)</span></label>
+        <div class="checkbox-grid">
+          <input type="radio" id="pt1" name="projectType" value="Home Automation"          required><label for="pt1">Home Automation</label>
+          <input type="radio" id="pt2" name="projectType" value="Healthcare">               <label for="pt2">Healthcare</label>
+          <input type="radio" id="pt3" name="projectType" value="Agriculture">              <label for="pt3">Agriculture</label>
+          <input type="radio" id="pt4" name="projectType" value="Safety &amp; Security">   <label for="pt4">Safety &amp; Security</label>
+          <input type="radio" id="pt5" name="projectType" value="Smart City">               <label for="pt5">Smart City</label>
+          <input type="radio" id="pt6" name="projectType" value="Assistive Technology">    <label for="pt6">Assistive Technology</label>
+          <input type="radio" id="pt7" name="projectType" value="Environmental Monitoring"><label for="pt7">Environmental Monitoring</label>
+          <input type="radio" id="pt8" name="projectType" value="Industrial IoT">           <label for="pt8">Industrial IoT</label>
+          <input type="radio" id="pt9" name="projectType" value="Other">                    <label for="pt9">Other</label>
+        </div>
+        <div class="other-input-wrap" id="ptOtherWrap">
+          <input type="text" id="ptOther" name="projectTypeOther" placeholder="Please specify your project type">
+        </div>
+        <div class="error-message">Please select a project type</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Target Users – checkbox multi-select -->
+      <div class="field" id="tuField">
+        <label>Target Users <span class="req">*</span> <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:12px;">(Select all that apply)</span></label>
+        <div class="checkbox-grid" id="targetUsersGrid">
+          <input type="checkbox" id="tu1" name="targetUsers" value="Students">       <label for="tu1">Students</label>
+          <input type="checkbox" id="tu2" name="targetUsers" value="Families">       <label for="tu2">Families</label>
+          <input type="checkbox" id="tu3" name="targetUsers" value="Farmers">        <label for="tu3">Farmers</label>
+          <input type="checkbox" id="tu4" name="targetUsers" value="Elderly People"> <label for="tu4">Elderly People</label>
+          <input type="checkbox" id="tu5" name="targetUsers" value="Industries">     <label for="tu5">Industries</label>
+          <input type="checkbox" id="tu6" name="targetUsers" value="General Public"> <label for="tu6">General Public</label>
+          <input type="checkbox" id="tu7" name="targetUsers" value="Other">          <label for="tu7">Other</label>
+        </div>
+        <div class="other-input-wrap" id="tuOtherWrap">
+          <input type="text" id="tuOther" name="targetUsersOther" placeholder="Please specify target users">
+        </div>
+        <div class="error-message">Please select at least one target user group</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field">
+        <label for="keyOutcome">Key Outcome / Goal of the Project <span class="req">*</span></label>
+        <p class="section-subtitle">What impact do you want this project to create?</p>
+        <textarea id="keyOutcome" name="keyOutcome" placeholder="Describe the expected impact, goals, or outcomes of your project…" required style="min-height:130px;"></textarea>
+        <div class="char-hint" id="koCount">0 / 800</div>
+        <div class="error-message">Please describe your project's key outcome</div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-area">
+      <button type="submit" class="btn-submit" id="submitBtn">
+        <span>Submit Survey</span>
+        <span>→</span>
+      </button>
+      <p class="note">🔒 Your response is confidential and handled only by the Operations team of FacePrep Campus.
+
+</p>
+    </div>
+
+  </form>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  // ⚠️ REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+  const SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyApv_0WngMt4OXFroocRi3E06PGqQVa1GSTf6SAIPjbYE6e5eSKCpX1QxLgI55heXi/exec";
+
+  // ── College → Department map (same colleges as FACE Prep form) ──
+  const COLLEGE_DEPTS = {
+    "Kamaraj College":                   ["I BCA - A","I BCA - B","II BCA","B.Com Honors","BBA Digital Marketing"],
+    "Kamaraj Women's College":           ["I BCA - A"],
+    "SDNB Vaishnav College for Women":   ["II B.Sc. CS with AI","I B.Sc. CS with AI (Shift 1)","I B.Sc. CS with AI (Shift 2)","I B.Sc. DS & AI","I B.Com FinTech with AI","I BBA DM & BA"],
+    "Patrician College of Arts & Science":["B.Sc. CS with AI"],
+    "Sree Saraswathi Thyagaraja College":["I BBA","I MCA"],
+    "TERF's College of Arts and Science":["III BCA","II B.Sc IT"],
+    "TJS College of Arts and Science":   ["II B.Sc CS with AI"],
+    "Bharathidasan College of Arts & Science":["I B.Sc CT","I BBA CA","II B.Sc CT"],
+    "Nagarathinam Angalammal Arts & Science College":["II B.Sc AI","I B.Sc AI","I B.Sc CC","BBA DM","B.Com BC & FT"],
+    "Vinayaga Mission's Research Foundation School of Arts & Science":["B.Com FinTech with AI","B.Sc AI & ML"],
+    "Sri Amaraavathi College of Arts & Science":["I BCA","II BCA","I B.Sc AI & ML","B.Com FinTech"],
+    "Takshashila University":            ["II B.Sc CS AI & ML","I B.Sc CS AI & ML","B.Com FinTech with AI"],
+    "Study World Group of Institution":  ["BCA"],
+    "Rathinam College of Arts & Science":["BCA (AI)","B.Sc CT (GenAI)"],
+    "Noorul Islam Centre for Higher Education (NICHE)":["B.Sc AI & ML"],
+    "AMET University":                   ["II B.Sc AI & ML","I B.Sc AI & ML","I B.Sc AI & DS","I B.Com Fintech with AI","I BBA E-Commerce & Digital Marketing"],
+    "Joy University":                    ["BCA AI"],
+    "Sasurie College of Arts and Science":["B.Sc AI & DS","B.Sc CS","B.Sc IT","BBA CA","B.Com PA"],
+    "S-VYASA University":                ["II BCA"],
+    "Asian School of Business":          ["BCA","BBA","B.Com"],
+    "Alliance University":               ["I BCA (DS + AI & ML)","I BCA (Game Development)","II BCA DS (A+B)","II BCA AI & ML (A+B)","II BCA Game Development (A+B)","I MCA - A","I MCA - B"],
+    "Kristu Jayanti (Deemed to be University)":["BBA - AI & DS","BBA - FinTech"]
+  };
+
+  // College → Department dynamic population
+  document.getElementById('collegeName').addEventListener('change', function () {
+    const college = this.value;
+    const deptSel = document.getElementById('department');
+    deptSel.innerHTML = '<option value="" disabled selected>Select your department</option>';
+    const depts = COLLEGE_DEPTS[college];
+    if (depts && depts.length) {
+      depts.forEach(d => {
+        const o = document.createElement('option');
+        o.value = d; o.textContent = d;
+        deptSel.appendChild(o);
+      });
+      deptSel.disabled = false;
+    } else {
+      deptSel.disabled = true;
+      deptSel.innerHTML = '<option value="" disabled selected>No departments available</option>';
+    }
+    updateProgress();
+  });
+
+  // Other – project type
+  document.querySelectorAll('[name="projectType"]').forEach(r => {
+    r.addEventListener('change', () => {
+      const wrap = document.getElementById('ptOtherWrap');
+      const otherInp = document.getElementById('ptOther');
+      if (r.value === 'Other' && r.checked) {
+        wrap.classList.add('visible'); otherInp.required = true;
+      } else {
+        wrap.classList.remove('visible'); otherInp.required = false; otherInp.value = '';
+      }
+      updateProgress();
+    });
+  });
+
+  // Other – target users
+  document.getElementById('tu7').addEventListener('change', function () {
+    const wrap = document.getElementById('tuOtherWrap');
+    const otherInp = document.getElementById('tuOther');
+    if (this.checked) { wrap.classList.add('visible'); otherInp.required = true; }
+    else              { wrap.classList.remove('visible'); otherInp.required = false; otherInp.value = ''; }
+    updateProgress();
+  });
+  
+  // Target users change tracking for progress
+  document.querySelectorAll('[name="targetUsers"]').forEach(cb => {
+    cb.addEventListener('change', updateProgress);
+  });
+
+  // Character counters
+  function setupCharCount(id, countId, max) {
+    const ta = document.getElementById(id), ct = document.getElementById(countId);
+    ta.addEventListener('input', () => {
+      const l = ta.value.length;
+      ct.textContent = `${l} / ${max}`;
+      ct.style.color = l > max * 0.9 ? 'var(--accent)' : 'var(--muted)';
+    });
+  }
+  setupCharCount('problemStatement','psCount',500);
+  setupCharCount('keyOutcome','koCount',800);
+
+  // Progress
+  function updateProgress() {
+    let req = 0, done = 0;
+    const radioGroups = new Set();
+    document.querySelectorAll('[required]').forEach(el => {
+      if (el.type === 'radio')    { radioGroups.add(el.name); return; }
+      if (el.type === 'checkbox') return;
+      req++;
+      if (el.tagName === 'SELECT') { if (el.value) done++; }
+      else { if (el.value.trim()) done++; }
+    });
+    radioGroups.forEach(name => { req++; if (document.querySelector(`[name="${name}"]:checked`)) done++; });
+    req++; if (document.querySelectorAll('[name="targetUsers"]:checked').length > 0) done++;
+    const pct = Math.min(100, Math.round((done / Math.max(req,1)) * 100));
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('pct').textContent = pct + '%';
+  }
+  document.getElementById('surveyForm').addEventListener('input',  updateProgress);
+  document.getElementById('surveyForm').addEventListener('change', updateProgress);
+
+  // Validation
+  function clearAllErrors() { document.querySelectorAll('.field.error').forEach(f=>f.classList.remove('error')); }
+
+  function validateForm() {
+    clearAllErrors();
+    let isValid = true, firstError = null;
+
+    document.querySelectorAll('.field').forEach(field => {
+      const inp = field.querySelector('input:not([type="radio"]):not([type="checkbox"]), textarea, select');
+      if (!inp || !inp.required) return;
+      let ok = true;
+      if (inp.type === 'email')        ok = inp.value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value);
+      else if (inp.tagName === 'SELECT') ok = !!inp.value;
+      else                               ok = inp.value.trim().length > 0;
+      if (!ok) { field.classList.add('error'); isValid = false; if (!firstError) firstError = field; }
+    });
+
+    if (!document.querySelector('[name="projectType"]:checked')) {
+      const f = document.getElementById('ptField');
+      f.classList.add('error'); isValid = false; if (!firstError) firstError = f;
+    }
+    if (document.querySelectorAll('[name="targetUsers"]:checked').length === 0) {
+      const f = document.getElementById('tuField');
+      f.classList.add('error'); isValid = false; if (!firstError) firstError = f;
+    }
+
+    if (!isValid && firstError) {
+      firstError.scrollIntoView({ behavior:'smooth', block:'center' });
+      const sec = firstError.closest('.section');
+      if (sec) { sec.classList.add('shake'); setTimeout(()=>sec.classList.remove('shake'),500); }
+      showToast('Please fill in all required fields','error');
+    }
+    return isValid;
+  }
+
+  document.getElementById('surveyForm').addEventListener('input',  e => { const f=e.target.closest('.field'); if(f)f.classList.remove('error'); });
+  document.getElementById('surveyForm').addEventListener('change', e => { const f=e.target.closest('.field'); if(f)f.classList.remove('error'); });
+
+  function showToast(msg, type='success') {
+    const t = document.getElementById('toast');
+    t.textContent = (type==='success'?'✅ ':'❌ ') + msg;
+    t.className = 'show ' + type;
+    setTimeout(()=>{ t.className=''; }, 4500);
+  }
+
+  document.getElementById('surveyForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<span>Submitting…</span><span>⏳</span>';
+
+    const fd = new FormData(this);
+    const ptVal   = fd.get('projectType');
+    const ptFinal = ptVal === 'Other' ? (fd.get('projectTypeOther') || 'Other') : ptVal;
+    const tuVals  = fd.getAll('targetUsers');
+    const tuOther = fd.get('targetUsersOther') || '';
+    const tuFinal = tuVals.map(v => v==='Other' && tuOther ? tuOther : v).join('; ');
+
+    const data = {
+      timestamp:        new Date().toISOString(),
+      fullName:         fd.get('fullName'),
+      phone:            fd.get('phone'),
+      email:            fd.get('email'),
+      registerNo:       fd.get('regNo'),
+      collegeName:      fd.get('collegeName'),
+      department:       fd.get('department'),
+      city:             fd.get('city'),
+      projectTitle:     fd.get('projectTitle'),
+      problemStatement: fd.get('problemStatement') || '',
+      brandName:        fd.get('brandName'),
+      projectType:      ptFinal,
+      targetUsers:      tuFinal,
+      keyOutcome:       fd.get('keyOutcome'),
+    };
+
+    if (SHEET_SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
+      console.log("Demo mode — data to be sent:");
+      console.table(data);
+      showToast("Demo mode: data logged to console. Add your Apps Script URL.");
+      btn.disabled = false;
+      btn.innerHTML = '<span>Submit Survey</span><span>→</span>';
+      return;
+    }
+
+    try {
+      const response = await fetch(SHEET_SCRIPT_URL, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data),
+        mode: 'no-cors'
+      });
+      
+      // With no-cors mode, we can't read the response, but if no error is thrown, it succeeded
+      showToast('Survey submitted successfully! Thank you 🎉', 'success');
+      this.reset();
+      clearAllErrors();
+      document.getElementById('department').disabled = true;
+      document.getElementById('department').innerHTML = '<option value="" disabled selected>First select your college</option>';
+      document.getElementById('ptOtherWrap').classList.remove('visible');
+      document.getElementById('tuOtherWrap').classList.remove('visible');
+      document.getElementById('psCount').textContent = '0 / 500';
+      document.getElementById('koCount').textContent = '0 / 800';
+      updateProgress();
+      window.scrollTo({ top:0, behavior:'smooth' });
+    } catch(err) {
+      console.error(err);
+      showToast('Submission failed. Please try again.','error');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '<span>Submit Survey</span><span>→</span>';
+    }
+  });
+</script>
+</body>
+</html>
